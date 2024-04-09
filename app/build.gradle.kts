@@ -21,6 +21,10 @@ android {
     }
 
     buildTypes {
+        debug {
+            isDebuggable = true
+
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -47,9 +51,17 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    compileOptions{
+        sourceCompatibility(JavaVersion.VERSION_1_8)
+        targetCompatibility(JavaVersion.VERSION_1_8)
+    }
 }
 
 dependencies {
+
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
